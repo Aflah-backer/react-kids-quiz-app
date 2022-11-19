@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.score{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
 }
-
-.App-link {
-  color: #61dafb;
+.score-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 300px;
+  background-color: #fff;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mainDiv{
+  background-color: #8181e3;
+  width: 100%;
+  height: 100vh;
+}
+.countContainer{
+  display: flex;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.textHead{
+  display: flex;
+  justify-content: space-between;
+  font-size: 35px;
+  font-weight: 600;
+}
+.closeBtn{
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+.question-count{
+  padding: 1rem;
+  font-weight: 800;
+  font-size: 30px;
+}
+.question-answer{
+display: flex;
+justify-content: center;
+height: 800px;
+/* background-color: rgb(75, 75, 75); */
+}
+.topCount{
+  color: antiquewhite;
+}
+.answer-section{
+  display: flex;
+  justify-content: center;
+  /* padding-top: 4rem; */
+}
+.btn1{
+  margin-right: 1rem;
+  height: 150px;
+  width: 150px; 
+  /* background-color: red; */
+}
+.btn1:hover{
+  opacity: 0.2;
+}
+.question-section{
+  display: flex;
+  justify-content: center;
+  /* background-color: #000000; */
+}
+.imgs{
+  width: 550px;
+}
+.questionText{
+  color: #fff;
+  font-size: 27px;
+  font-weight: 600;
+  justify-content: center;
+  /* background-color: green; */
+}
+.textContainer{
+  display: flex;
+  justify-content: center;
+}
+.text{
+  width: 690px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  /* background-color: aliceblue; */
+}
+.questionAndAnswers{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+}
+.backBnt:hover{
+border: solid 3px;
+border-color: #fff;
 }
