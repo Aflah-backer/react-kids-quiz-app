@@ -4,6 +4,7 @@ import React from 'react'
 
 function ProgressBar({currentQuestion}) {
   return (
+   <>
     <Grid className="prgressContainer">
     <Progress
       bgColor={"#5555b5"}
@@ -24,6 +25,7 @@ function ProgressBar({currentQuestion}) {
       }
     />
   </Grid>
+   </>
   )
 }
 
