@@ -13,7 +13,7 @@ function Home() {
       className="container"
       style={{ backgroundColor: "#7272cc", width: "100%", height: "100vh" }}
     >
-      <NavBar />
+      <NavBar page = "home"/>
       <div className="divContainer">
         <VStack style={{marginTop:"6rem"}}>
           <Container maxW="-webkit-fit-content">
@@ -26,11 +26,11 @@ function Home() {
           </Container>
           <Container maxW="-webkit-fit-content">
             <p style={{ fontSize: "40px", fontWeight: "500", color: "#fff" }}>
-              IQ Test
+            IQ Test for kids from 7 to 16 year old
             </p>
           </Container>
           <Container maxW="-webkit-fit-content">
-            <Button m={4} onClick={handleClick}>GetStart</Button>
+            <Button className="startBtn" m={4} colorScheme="blackAlpha" onClick={handleClick}>GetStart</Button>
           </Container>
           <Container maxW="1150" style={{marginTop:"3rem"}}>
             <p style={{color:"#fff",fontSize:"18px"}}>

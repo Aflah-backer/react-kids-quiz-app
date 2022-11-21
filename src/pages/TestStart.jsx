@@ -1,7 +1,10 @@
-import { ArrowBackIcon, CloseIcon } from "@chakra-ui/icons";
-import { Box, Button, Image } from "@chakra-ui/react";
+import { ArrowBackIcon, CloseIcon, RepeatIcon } from "@chakra-ui/icons";
+import { Progress } from '@chakra-ui/react'
+import { FaFacebook, FaInstagram, FaTelegram, FaTwitter } from 'react-icons/fa'
+import { Box, Button, Flex, Grid, GridItem, Image } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 function TestStart() {
   const questions = [
@@ -166,19 +169,19 @@ function TestStart() {
       ],
     },
   ];
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
-  const [state,setState] = useState(false)
+  const [state, setState] = useState(false);
   const [score, setScore] = useState(0);
 
   const handleClick = (isCorrect) => {
     const nextQuestion = currentQuestion + 1;
     if (isCorrect === true) {
-      setState(true)
+      setState(true);
       setScore(score + 1);
-    }else{
-      setState(false)
+    } else {
+      setState(false);
     }
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
@@ -189,21 +192,69 @@ function TestStart() {
   const backHandle = () => {
     const backQuestion = currentQuestion - 1;
     setCurrentQuestion(backQuestion);
-    if(state === true){
+    if (state === true) {
       setScore(score - 1);
     }
   };
   const closeBtn = () => {
-    navigate('/')
-  }
+    navigate("/");
+  };
+  const reStartBtn = () => {
+    navigate("/");
+  };
   return (
     <div className="mainDiv">
       {showScore ? (
-        <Box className="score">
-          <Box className="score-section">
-            You Scored {score} out of {questions.length}
+        <>
+          <NavBar />
+
+          <Box className="score">
+            <h1 className="scoreText">
+              IQ Test for kids from 7 to 16 year old
+            </h1>
+            <button className="reStartbtn" onClick={reStartBtn}>
+              <RepeatIcon mr={4} />
+              Take the test again
+            </button>
+            <Box className="score-section" >
+              <Flex w={1200} minH={500} >
+                <Box w={700}>
+                  <h1>
+                    <b>Your result:</b>
+                  </h1>
+                  <br />
+                  <p>
+                    <b>Your IQ is {(score / questions.length) * 100}.</b> This
+                    corresponds to a below average level IQ. In this test you
+                    have{" "}
+                    <b>
+                      {" "}
+                      {score} correct answers from {questions.length}.
+                    </b>{" "}
+                    This is not a very good result for your age 16.
+                  </p>
+                  <br />
+                  <p>
+                    Please note that the first four questions of the test were
+                    only the practice questions and they do not count towards
+                    the final result.
+                  </p>
+                </Box>
+                <Box w={200}></Box>
+
+                <Grid templateRows='repeat(1, 1fr)' templateColumns='repeat(5, 1fr)' gap={6} h={70} >
+                <GridItem colSpan={5} color={"ActiveBorder"}> <img src="" alt="" /> </GridItem>  
+                <GridItem colSpan={5} color={"ActiveBorder"}> <h1>4.3</h1></GridItem>  
+                <GridItem colSpan={5} color={"ActiveBorder"}><b> Our social networks</b></GridItem>
+                <GridItem ><FaFacebook/></GridItem>
+                <GridItem ><FaTwitter/></GridItem>
+                <GridItem ><FaInstagram/></GridItem>
+                <GridItem ><FaTelegram/></GridItem>
+                </Grid>
+              </Flex>
+            </Box>
           </Box>
-        </Box>
+        </>
       ) : (
         <>
           <Box className="textHead">
@@ -214,7 +265,7 @@ function TestStart() {
               <h1 className="topCount">/{questions.length}</h1>
             </span>
             <button className="closeBtn" onClick={closeBtn}>
-            <CloseIcon bgSize={30}/>
+              <CloseIcon bgSize={30} />
             </button>
           </Box>
           <Box className="questionAndAnswers">
@@ -254,22 +305,31 @@ function TestStart() {
                   )
                 )}
               </Box>
-              { currentQuestion !== 0 ?
-              <Button
-                className="backBnt"
-                colorScheme="blackAlpha"
-                mt={6}
-                mr={12}
-                w={"130px"}
-                h={"12"}
-                onClick={backHandle}
-              >
-                <ArrowBackIcon fontSize={"30px"} colorScheme="#fff" />
-              </Button>: ""}
+              {currentQuestion !== 0 ? (
+                <Button
+                  className="backBnt"
+                  colorScheme="blackAlpha"
+                  mt={6}
+                  mr={12}
+                  w={"130px"}
+                  h={"12"}
+                  onClick={backHandle}
+                >
+                  <ArrowBackIcon fontSize={"30px"} colorScheme="#fff" />
+                </Button>
+              ) : (
+                ""
+              )}
             </Box>
           </Box>
         </>
       )}
+      <Grid className="prgressContainer">
+      <Progress bgColor={"#5555b5"} colorScheme={"whiteAlpha"} className="progressBar" 
+      value={80} 
+      />
+      </Grid>
+      
     </div>
   );
 }

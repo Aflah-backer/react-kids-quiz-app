@@ -1,15 +1,64 @@
-.score{
+.logoBox{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.logoImg{
+  margin-left: 2rem;
+  height: 20px;
+  /* background-color: #8181e3; */
+}
+.searchBar{
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px){
+  .searchBar{
+      display: none;
+  }
+}
+.startBtn{
+  width: 250px;
+}
+.startBtn:hover{
+  border: solid 2px;
+  border-color: #fff;
+}
+.scoreText{
+  position: absolute;
+  top: 10rem;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+}
+.reStartbtn{
+  position: absolute;
+  top: 14rem;
+  color: #fff;
+  background-color: rgba(20, 20, 20, 0.178);
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  height: 4rem;
+  width: 14rem;
+}
+.reStartbtn:hover{
+  border: solid 2px;
+  border-color: #fff;
+  background-color: rgba(20, 20, 20, 0);
+}
+.score{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   height: 100vh;
 }
 .score-section{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 300px;
+  width: 100%;
+  height: 650px;
   background-color: #fff;
 }
 .mainDiv{
@@ -95,4 +144,12 @@ height: 800px;
 .backBnt:hover{
 border: solid 3px;
 border-color: #fff;
+}
+.prgressContainer{
+  display: flex;
+  align-items: flex-end;
+  height: 107px;
+}
+.progressBar{
+  color: #fff;
 }
